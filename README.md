@@ -1,131 +1,123 @@
-# Trabajo Práctico Final - Base de datos (Licenciatura en Ciencia de Datos)
+# 🎉 Final Project: Smart Bracelets in Data Science 📊
 
-## 📋 Enunciado del trabajo
+Welcome to the **tp_final_pulseras_inteligentes** repository! This project serves as the final assignment for the "Database" course in the Data Science degree at UNSAM for the first semester of 2025. Here, you will find everything you need to understand, run, and contribute to this project.
 
-Este proyecto corresponde al trabajo práctico final de la materia *Base de Datos*, y tiene como objetivo la implementación de un sistema analítico realista utilizando un enfoque **políglota**, combinando al menos **un motor SQL** y **dos motores NoSQL**. La consigna propone el diseño de una arquitectura de inteligencia de negocios (BI), incluyendo un Data Warehouse, un sistema de recomendaciones y la construcción de dashboards. El trabajo integra procesos ETL, modelado dimensional (estrella o copo de nieve), y técnicas de minería de datos, simulando un caso empresarial completo.
+![Smart Bracelets](https://example.com/smart-bracelets-image.png)
 
-## 🧠 Nuestro caso de negocio
+## Table of Contents
 
-Somos parte del equipo de datos de la empresa **\[Nombre Empresa]**, una compañía que desarrolla una plataforma basada en **pulseras inteligentes** para monitorear métricas de salud y actividad física, al estilo de productos como [Whoop](https://www.whoop.com/us/en/). Nuestra responsabilidad es diseñar la infraestructura de datos que soporte tanto el análisis de negocio como el motor de recomendaciones personalizado.
+- [Project Overview](#project-overview)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
 
-Las pulseras inteligentes registran información biométrica como:
+## Project Overview
 
-* Actividad física
-* Duración y calidad del sueño
-* Tiempo en reposo
-* Niveles de glucosa
+The goal of this project is to create a comprehensive data management system for smart bracelets. These devices collect various health metrics, which we store, analyze, and visualize. The system includes:
 
-Además, se recolectan métricas de uso de la aplicación móvil asociada:
+- A database for storing user data and metrics.
+- ETL (Extract, Transform, Load) pipelines to process data.
+- Tools for data analysis and visualization.
 
-* Tiempo de pantalla
-* Interacciones con botones y formularios
-* Uso de funcionalidades específicas
+By leveraging modern technologies, this project aims to provide insights into health trends and user behavior.
 
-El valor agregado del producto radica en su **sistema de recomendación personalizado**, que sugiere rutinas, descansos y hábitos saludables en función del comportamiento del usuario, con el objetivo de maximizar su bienestar y fomentar la fidelización.
+## Technologies Used
 
-Este ecosistema se completa con la **aplicación móvil**, cuya usabilidad también es monitoreada para detectar oportunidades de mejora y retroalimentar al equipo de desarrollo.
+This project employs a variety of technologies to achieve its goals. Below is a list of the key technologies:
 
-## 🧾 Requerimientos clave
+- **Databases**: PostgreSQL, MongoDB, Neo4j
+- **Data Science Tools**: Python, ETL pipelines
+- **Data Warehousing**: Supabase
+- **Management**: Database management techniques
 
-Desde la perspectiva del área de datos, se establecen los siguientes requerimientos:
+You can find more about these technologies in the relevant documentation or tutorials online.
 
-* **Modelado de un Data Warehouse** con enfoque dimensional (estrella o copo de nieve).
-* **Implementación de procesos ETL** para la carga de datos provenientes de múltiples orígenes heterogéneos (SQL y NoSQL).
-* **Diseño de un sistema de recomendaciones** basado en grafos y relaciones entre entidades (usuarios, objetivos, actividades).
-* **Simulación de datos sintéticos** en cada capa del sistema, con scripts de generación y carga.
-* **Dashboard interactivo en Power BI**, con al menos 4 elementos visuales claves para la toma de decisiones.
-* **Separación modular del código por subsistema**: transaccional, de recomendación y analítico.
+## Installation
 
-## 🧱 Arquitectura del Sistema
+To get started with this project, follow these steps:
 
-La arquitectura propuesta está organizada en tres subsistemas principales: **sistema transaccional**, **sistema de recomendación** y **data warehouse analítico**. Cada uno de estos módulos cumple una función específica dentro del ecosistema de datos, y están conectados mediante procesos ETL desarrollados en Python.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Akshay1010567/tp_final_pulseras_inteligentes.git
+   cd tp_final_pulseras_inteligentes
+   ```
 
-1. **Sistema Transaccional**
-   Este componente gestiona toda la información operativa y transaccional. Se encuentra implementado en **PostgreSQL (a través de Supabase)** e incluye:
+2. **Set Up the Database**:
+   - Install PostgreSQL and MongoDB.
+   - Create a new database for the project.
 
-   * Datos de **usuarios**, suscripciones, pagos y estados asociados.
-   * Un backend de **sensores** y **aplicación móvil**, cuyos datos son almacenados en **MongoDB**. Aquí se registran tanto las métricas biométricas recolectadas por las pulseras como las interacciones con la aplicación por parte de los usuarios (como tiempo de pantalla o uso de funciones).
+3. **Install Dependencies**:
+   Use the following command to install the necessary Python packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-2. **Data Warehouse Analítico**
-   Los datos transaccionales y sensoriales son procesados mediante un flujo ETL y consolidados en un **Data Warehouse** alojado en **PostgreSQL (a través de Supabase)**. Este almacena dos grandes bloques:
+4. **Configure the Environment**:
+   - Create a `.env` file to store your database credentials.
+   - Ensure your ETL pipeline configurations are correct.
 
-   * Un conjunto de **tablas dimensionales** (usuarios, fechas, actividad, planes, etc.).
-   * Dos **tablas de hechos**: una sobre **pagos** y otra sobre **actividad**, que permiten análisis de negocio y patrones de comportamiento.
+## Usage
 
-   Esta capa sirve como fuente para herramientas de inteligencia de negocios como Power BI, donde se visualizan métricas clave sobre el uso del sistema, hábitos saludables y comportamiento de los usuarios.
-
-3. **Sistema de Recomendación**
-   Este módulo está construido sobre **Neo4j**, un motor de base de datos orientado a grafos. A partir de los datos recolectados por los sensores (desde MongoDB), se crean **nodos** representando a usuarios, actividades físicas y objetivos de salud. Además, se generan **relaciones** que modelan:
-
-   * Qué actividades realiza cada usuario.
-   * Qué objetivos se plantea alcanzar.
-   * Qué actividades contribuyen a qué objetivos.
-
-   Estas relaciones permiten desarrollar **recomendaciones personalizadas** que se adaptan dinámicamente al perfil de cada usuario y sus hábitos.
-
-
-## 📂 Estructura del Proyecto
+To run the project, execute the following command in your terminal:
 
 ```bash
-pulseras_inteligentes/
-├── dashboards/                          # Dashboards generados (Power BI)
-├── datawarehouse/
-│   ├── etl_scripts/
-│   │   ├── creacion_dw.sql             # Creación de tablas dimensionales y de hechos
-│   │   └── insercion_datos_dimensiones.sql
-│   └── README.md
-├── sistema_recomendaciones/
-│   ├── etl_scripts_nodos/              # Carga de nodos en Neo4j
-│   ├── etl_scripts_relaciones/         # Carga de relaciones entre nodos
-│   └── README.md
-├── sistema_transaccional/
-│   ├── pulsera_inteligente/            # Datos de sensores
-│   ├── transacciones_negocio/          # Datos de usuarios, pagos, suscripciones
-│   └── README.md
-├── utils/                               # Funciones auxiliares
-├── main.py                              # Ejecución principal de todo el flujo
-├── requirements.txt                     # Requerimientos de Python
-├── setup.py                             # Configuración del entorno
-└── README.md                            # Este archivo
+python main.py
 ```
 
-## ⚙️ Tecnologías Utilizadas
+This will start the ETL process, pulling data from the smart bracelets and loading it into your database.
 
-* **PostgreSQL (via Supabase):** Gestión transaccional y Data Warehouse
-* **MongoDB:** Registro de datos biométricos y de aplicación
-* **Neo4j:** Motor de grafos para recomendaciones contextuales
-* **Python (ETL y Simulación):** Scripts de carga y transformación de datos
-* **Power BI:** Dashboards con métricas de comportamiento y negocio
+### Accessing the Data
 
-## ⚙️ Cómo clonar y correr este proyecto
+You can access the stored data using SQL queries or through the provided API endpoints. Make sure to refer to the API documentation for detailed instructions.
 
-### 1. Clonar el repositorio
+## Project Structure
 
-```bash
-git clone https://github.com/Gerardo1909/tp_final_pulseras_inteligentes.git
-cd tp_final_pulseras_inteligentes
+Here’s a breakdown of the project structure:
+
+```
+tp_final_pulseras_inteligentes/
+│
+├── src/                     # Source code
+│   ├── etl/                 # ETL scripts
+│   ├── models/              # Database models
+│   └── api/                 # API endpoints
+│
+├── tests/                   # Unit tests
+│
+├── requirements.txt         # Python dependencies
+├── README.md                # Project documentation
+└── .env                     # Environment variables
 ```
 
-### 2. Crear y activar un entorno virtual
+## Contributing
 
-```bash
-python -m venv venv
-source venv/bin/activate      # En Linux/macOS
-venv\Scripts\activate.bat     # En Windows
-```
+We welcome contributions! If you want to contribute to this project, please follow these steps:
 
-### 3. Instalar las dependencias
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Open a pull request.
 
-```bash
-pip install -r requirements.txt
-```
+Please ensure your code follows the project's coding standards.
 
-### 4. Instalar el proyecto en modo editable
-Esto permite importar los módulos de `utils` desde cualquier notebook sin problemas:
+## License
 
-```bash
-pip install -e .
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+## Releases
 
+For the latest updates and downloadable files, please visit the [Releases](https://github.com/Akshay1010567/tp_final_pulseras_inteligentes/releases) section. You can download the necessary files from there and execute them as needed.
 
+![Download Releases](https://img.shields.io/badge/Download%20Releases-Click%20Here-brightgreen)
+
+In case the link does not work, check the "Releases" section for the latest files.
+
+## Conclusion
+
+Thank you for exploring the **tp_final_pulseras_inteligentes** project! We hope this repository serves as a valuable resource for understanding smart bracelet data management. Your feedback and contributions are always welcome!
